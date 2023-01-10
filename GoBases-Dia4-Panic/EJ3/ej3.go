@@ -9,8 +9,8 @@ Número de teléfono
 Domicilio
 
 Tarea 1: Antes de registrar a un cliente, debés verificar si el mismo ya existe. Para ello, necesitás leer los datos de un array.
-En caso de que esté repetido, d
-ebes manipular adecuadamente el error como hemos visto hasta aquí. Ese error deberá:
+En caso de que esté repetido,
+debes manipular adecuadamente el error como hemos visto hasta aquí. Ese error deberá:
 1.- generar un panic;
 2.- lanzar por consola el mensaje: “Error: el cliente ya existe”, y continuar con la ejecución del programa normalmente.
 Tarea 2: Luego de intentar verificar si el cliente a registrar ya existe, desarrollá una función para validar que todos los datos a registrar

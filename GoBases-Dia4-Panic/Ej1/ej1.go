@@ -8,3 +8,7 @@ Desarrollá el código necesario para leer los datos del archivo llamado “cust
 Dado que no contamos con el archivo necesario, se obtendrá un error y, en tal caso, el programa deberá arrojar un panic al intentar leer un archivo que no existe,
 mostrando el mensaje “el archivo indicado no fue encontrado o está dañado”.
 Sin perjuicio de ello, deberá siempre imprimirse por consola “ejecución finalizada”.*/
+
+func main() {
+
+}
