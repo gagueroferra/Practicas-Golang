@@ -13,7 +13,7 @@ y lanzalo en caso de que “salary” sea menor a 150.000. De lo contrario, tend
 “Debe pagar impuesto”.*/
 
 func main() {
-	Salary(160000)
+	Salary(140000)
 }
 
 type MyError struct{}
@@ -24,12 +24,14 @@ func (err *MyError) Error() error {
 
 var myError = errors.New("Error: el salario ingresado no alcanza el mínimo imponible")
 
+var myError2 = errors.New("Debe pagar impuestos")
+
 func Salary(salary int) error {
 	if salary < 150000 {
 		myErr := MyError{}
 		fmt.Println(myErr.Error())
 	} else {
-		fmt.Println("Debe pagar impuestos")
+		fmt.Println(myError2)
 	}
 	return nil
 }

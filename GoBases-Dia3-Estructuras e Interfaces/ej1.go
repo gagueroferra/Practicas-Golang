@@ -1,17 +1,19 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func main() {
-	Gustavo := Alumnos{
-		Nombre:   "Gustavo",
-		Apellido: "Aguero",
-		DNI:      40725081,
-		Fecha:    "21/10/1997",
+	newStudent := Student{
+		Name:    "Gustavo",
+		Surname: "Aguero",
+		DNI:     40725081,
+		Date:    "21/10/1997",
 	}
-	Gustavo.Registrar(&alumnos)
-	buscarAlumno := Alumnos{}
-	buscarAlumno.Detalles("Gustavo")
+	newStudent.RegisterStudent(&students)
+	newStudent.GetStudentData("Gustav")
 }
 
 /*
@@ -27,26 +29,26 @@ Fecha: [Fecha ingreso alumno]
 Los valores que están en corchetes deben ser reemplazados por los datos brindados por los alumnos/as.
 Para ello es necesario generar una estructura Alumnos con las variables Nombre, Apellido, DNI, Fecha y que tenga un método detalle.*/
 
-type Alumnos struct {
-	Nombre   string
-	Apellido string
-	DNI      uint
-	Fecha    string
+type Student struct { //creamos la estructura
+	Name    string
+	Surname string
+	DNI     uint
+	Date    string
 }
 
-var alumnos = []Alumnos{}
+var students = []Student{}
 
-func (alumno Alumnos) Registrar(storage *[]Alumnos) {
-	*storage = append(*storage, alumno)
+var err = errors.New("Error: Student not found") //creamos un error para devolver
+
+func (student Student) RegisterStudent(storage *[]Student) { //instanciamos la estructura
+	*storage = append(*storage, student)
 }
 
-func (alumno Alumnos) Detalles(nombre string) {
-	for _, alumno := range alumnos {
-		if alumno.Nombre == nombre {
-			fmt.Println("Nombre: ", alumno.Nombre, "\nApellido: ", alumno.Apellido, "\nDNI: ", alumno.DNI, "\nFecha: ", alumno.Fecha)
-			break
-		} else if alumno.Nombre != nombre {
-			fmt.Println("No se encuentra el alumno")
-		}
+func (student Student) GetStudentData(name string) { //instanciamos la estructura
+	switch name {
+	case student.Name:
+		fmt.Println("Name: ", student.Name, "\nSurname: ", student.Surname, "\nDNI: ", student.DNI, "\nDate: ", student.Date)
+	default:
+		fmt.Println(err)
 	}
 }

@@ -12,6 +12,7 @@ indicando que no alcanza el mínimo imponible (el mensaje mostrado por consola d
 
 func main() {
 	salario := Salary(160000)
+
 	fmt.Println(salario)
 }
 
