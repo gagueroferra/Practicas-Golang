@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"os"
+)
+
 /*Ejercicio 1 - Datos de clientes
 Un estudio contable necesita acceder a los datos de sus empleados para poder realizar distintas liquidaciones. Para ello, cuentan con todo el detalle necesario
 en un archivo .txt.
@@ -11,4 +16,21 @@ Sin perjuicio de ello, deberá siempre imprimirse por consola “ejecución fina
 
 func main() {
 
+	ReadWithError()
+}
+
+func ReadWithError() {
+	defer func() {
+		recuperado := recover()
+		if recuperado != nil {
+			fmt.Println(recuperado, "\nFinalizado")
+		}
+	}()
+	fmt.Println("Iniciando")
+	archivo, err := os.ReadFile("archiv.txt")
+	if err != nil {
+		panic("El archivo indicado no fue encontrado o está dañado")
+	}
+	fmt.Printf("%s\n", archivo)
+	fmt.Println("Finalizado")
 }
